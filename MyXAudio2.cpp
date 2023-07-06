@@ -218,13 +218,6 @@ void MyXAudio2::Play(int AudioIndex,float AudioVolume,int pan) {
 	outputMatrix[2] =left ;
 	int InChannels = 2;
 	int OutChannels = 4;
-	/*XAUDIO2_VOICE_DETAILS VoiceDetails;
-		pSourceVoice[AudioIndex]->GetVoiceDetails(&VoiceDetails);
-		InChannels = VoiceDetails.InputChannels;
-		XAUDIO2_VOICE_DETAILS MasterVoiceDetails;
-		pMasteringVoice->GetVoiceDetails(&MasterVoiceDetails);
-		OutChannels = MasterVoiceDetails.InputChannels;
-		OutChannels = 2;*/
 	pSourceVoice[AudioIndex]->SetOutputMatrix(NULL, InChannels, OutChannels, outputMatrix);
 	//hr = pSourceVoice[AudioIndex]->SetChannelVolumes(1, SourceVoiceChannelVolumes);
 	pSourceVoice[AudioIndex]->SetVolume(AudioVolume);
